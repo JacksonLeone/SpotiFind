@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>SpotiFind:</h1>
+<h2>Expand your playlist</h2>
+<h3>Intro/Background </h3>
+<p>Our team aims to create a tool that finds related songs and artists through the Spotify Developer API through favorite artists and songs. 
+    We also aim for this tool to be able to create curated playlists based on these related artists and given a specific mood. </p>
+
+<h3>Problem Definition</h3>
+<p>We're tired of listening to the same music every day. We want to train an AI to recommend new music to us based on our personal preferences. 
+    By taking the attributes of the songs we like, we want to be given a playlist personally tailored to our tastes in music. </p>
+
+<h3>Data Collection</h3>
+<p>To collect our data, we will be using Spotify's API to gather information about the top songs of a given year; this information includes acousticness, 
+    danceability, energy, length, instrumentalness, key, liveness, loudness, mode, speechiness, tempo,  and valence. These features are given by Spotify itself, 
+    and they can be used as effective indicators to classify songs by genre. To get a good sample of songs, we've decided to gather the top 1000 songs released 
+    per year over the last 5 years. </p>
+
+<h3>Methods</h3>
+<p>To tune the best recommendations, we plan on cleaning our data using PCA to reduce the dimensionality of our dataset to 3 and narrowing down the optimal 
+    directions to project and evaluate the features on. Then, we will use DBScan to separate our data into clusters. With this, we should be able to input a 
+    song, extract its important features, and find enough songs with similarities in these features to generate a playlist. </p>
+
+<h3>Results and Discussion</h3>
+<p>From our analysis of the most popular songs from the past 5 years, we found through our PCA and DBScan that the duration, tempo, and loudness of a song were 
+    very influential in indicating similarities between songs, whereas mode, liveliness, and speechiness didn't seem to matter as much. From this data, we can 
+    make some inferences; songs in similar genres/styles may tend to have a consistent structure and tempo, causing their lengths to converge to a relatively 
+    small range. This revelation gives a sneak peak into the playlist our project will create when given a song that a user wants more of.<br></p>
+<img src="dbscan.png" alt="dbscan table" width = 580 height = 225>
+    <p>Dimensions show PCA values, DBScan shows cluster assignment (-1 means outlier)</p>
+
+<h3>References</h3>
+<ul>
+    <li>https://developer.spotify.com/documentation/web-api/reference/#endpoint-get-several-audio-features </li>
+    <li>https://stackoverflow.com/questions/38664235/how-to-look-up-spotify-ids-song-track-ids-in-bulk </li>
+    <li>https://www.kaggle.com/bricevergnou/spotify-recommendation</li>
+</ul>
+
+    
+</body>
+</html>
